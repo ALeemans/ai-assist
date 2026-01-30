@@ -86,6 +86,33 @@ def get_reminders(category=None):
     
     return reminders
 
+def check_event_exists(service, calendar_id, title, due_date):
+    """Check if an event with the same title already exists on the due date"""
+    try:
+        # Search for events on the due date
+        time_min = due_date.replace(hour=0, minute=0, second=0).isoformat() + 'Z'
+        time_max = due_date.replace(hour=23, minute=59, second=59).isoformat() + 'Z'
+        
+        events_result = service.events().list(
+            calendarId=calendar_id,
+            timeMin=time_min,
+            timeMax=time_max,
+            q=title,  # Search by title
+            singleEvents=True
+        ).execute()
+        
+        events = events_result.get('items', [])
+        
+        # Check if any event has the exact title we're looking for
+        for event in events:
+            if event.get('summary') == f"📌 {title}":
+                return True
+        
+        return False
+    except Exception as e:
+        print(f"⚠️  Error checking for existing event: {e}")
+        return False
+
 def create_calendar_event(service, reminder, config=None):
     """Create a Google Calendar event from a reminder"""
     frontmatter = reminder['frontmatter']
@@ -114,6 +141,11 @@ def create_calendar_event(service, reminder, config=None):
             due_dt = datetime.combine(due_date, datetime.min.time())
     except:
         print(f"⚠️  Skipping {reminder['path'].name} - invalid due date: {due_date}")
+        return None
+    
+    # Check if event already exists
+    if check_event_exists(service, calendar_id, title, due_dt):
+        print(f"⏭️  Skipped '{title}' - already exists in calendar")
         return None
     
     # Get timezone from config
