@@ -1,4 +1,7 @@
-# Instructions for GitHub Copilot
+---
+applyTo: '**'
+---
+# Instructions for GitHub Copilot ai Assist Repository
 
 ## Purpose of This Repository
 
@@ -20,9 +23,10 @@ This repository serves as a personal knowledge base and task management system. 
 - Remind user of pending reminders when relevant to conversation
 - Use metadata (tags, dates, priority) to filter and prioritize information
 - **Always ask to clean up redundant files after completing functionality** - This repo involves testing and can get cluttered. After finishing any new feature or integration, proactively ask the user if they want to remove test files, unused scripts, or obsolete documentation
-- **Automatically sync reminders to Google Calendar** - When creating reminder files in `private/reminders/` or `work/reminders/`, automatically run the sync command: `cd integrations\google-calendar` then `python sync-reminders-to-calendar.py --category private` (or `--category work` for work reminders)
+- **Always use virtual environment for Python scripts** - Before running any Python script, ALWAYS use the virtual environment Python interpreter: `& D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe <script-path>`
+- **Automatically sync reminders to Google Calendar** - When creating reminder files in `private/reminders/` or `work/reminders/`, ALWAYS automatically run the sync script immediately after creation using: `& D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe D:/HogeschoolUtrecht/GithubRepos/ai-assist/integrations/google-calendar/sync-reminders-to-calendar.py`
 - **Schedule work reminders on weekdays only** - When creating work reminders, ensure the due date falls on a weekday (Monday-Friday). If a date falls on a weekend, move it to the next Monday
-- **Archive completed reminders** - When a reminder is completed, change its status to `status: completed` and run `python integrations\reminders\archive_completed.py` to automatically move it to the archive folder. This keeps active reminder folders clean while preserving history. 
+- **Archive completed reminders** - When a reminder is completed, change its status to `status: completed` and run `& D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe D:/HogeschoolUtrecht/GithubRepos/ai-assist/integrations/reminders/archive_completed.py` to automatically move it to the archive folder. This keeps active reminder folders clean while preserving history. 
 
 ## Integration Points
 
