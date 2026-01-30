@@ -2,6 +2,10 @@
 integrations/google-calendar/credentials.json
 integrations/google-calendar/token.json
 
+# Outlook credentials
+integrations/outlook/token.json
+integrations/outlook/credentials.json
+
 # Python
 __pycache__/
 *.py[cod]
