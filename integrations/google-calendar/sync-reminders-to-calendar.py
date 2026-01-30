@@ -1,0 +1,245 @@
+"""
+Sync reminder files to Google Calendar
+Reads reminder markdown files and creates calendar events
+Automatically routes work reminders to HU calendar and private to personal calendar
+"""
+
+import argparse
+import yaml
+from pathlib import Path
+from datetime import datetime, timedelta
+from google.oauth2.credentials import Credentials
+from googleapiclient.discovery import build
+
+SCRIPT_DIR = Path(__file__).parent
+REPO_ROOT = SCRIPT_DIR.parent.parent
+TOKEN_FILE = SCRIPT_DIR / 'token.json'
+CONFIG_FILE = SCRIPT_DIR / 'calendar-config.yaml'
+SCOPES = ['https://www.googleapis.com/auth/calendar']
+
+def load_config():
+    """Load calendar configuration"""
+    if not CONFIG_FILE.exists():
+        print("⚠️  calendar-config.yaml not found, using defaults")
+        return None
+    
+    with open(CONFIG_FILE, 'r') as f:
+        return yaml.safe_load(f)
+
+def get_calendar_id_for_category(category, config):
+    """Get the appropriate calendar ID for a reminder category"""
+    if not config:
+        return 'primary'
+    
+    # Get calendar key from category mapping
+    calendar_key = config.get('category_mapping', {}).get(category, 'primary')
+    
+    # Get calendar ID from calendars section
+    calendar_id = config.get('calendars', {}).get(calendar_key, {}).get('id', 'primary')
+    
+    return calendar_id
+
+def get_calendar_service():
+    """Get authenticated Google Calendar service"""
+    if not TOKEN_FILE.exists():
+        print("❌ Not authenticated. Run setup-google-calendar.py first")
+        return None
+    
+    creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
+    return build('calendar', 'v3', credentials=creds)
+
+def parse_reminder_file(file_path):
+    """Parse a reminder markdown file and extract frontmatter"""
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Extract YAML frontmatter
+    if content.startswith('---'):
+        parts = content.split('---', 2)
+        if len(parts) >= 3:
+            frontmatter = yaml.safe_load(parts[1])
+            body = parts[2].strip()
+            return frontmatter, body
+    
+    return None, content
+
+def get_reminders(category=None):
+    """Get all reminder files from work and/or private folders"""
+    reminders = []
+    
+    categories = ['work', 'private'] if category is None else [category]
+    
+    for cat in categories:
+        reminder_dir = REPO_ROOT / cat / 'reminders'
+        if reminder_dir.exists():
+            for file_path in reminder_dir.glob('*.md'):
+                if file_path.name == 'README.md':
+                    continue
+                frontmatter, body = parse_reminder_file(file_path)
+                if frontmatter and frontmatter.get('status') == 'pending':
+                    reminders.append({
+                        'path': file_path,
+                        'frontmatter': frontmatter,
+                        'body': body,
+                        'category': cat
+                    })
+    
+    return reminders
+
+def create_calendar_event(service, reminder, config=None):
+    """Create a Google Calendar event from a reminder"""
+    frontmatter = reminder['frontmatter']
+    category = reminder['category']
+    
+    # Get the appropriate calendar for this category
+    calendar_id = get_calendar_id_for_category(category, config)
+    calendar_name = config.get('calendars', {}).get(
+        config.get('category_mapping', {}).get(category, 'primary'), {}
+    ).get('name', calendar_id) if config else calendar_id
+    
+    # Get title from frontmatter or filename
+    title = frontmatter.get('title', reminder['path'].stem.replace('-', ' ').title())
+    
+    # Get due date
+    due_date = frontmatter.get('due')
+    if not due_date:
+        print(f"⚠️  Skipping {reminder['path'].name} - no due date")
+        return None
+    
+    # Parse due date
+    try:
+        if isinstance(due_date, str):
+            due_dt = datetime.strptime(due_date, '%Y-%m-%d')
+        else:
+            due_dt = datetime.combine(due_date, datetime.min.time())
+    except:
+        print(f"⚠️  Skipping {reminder['path'].name} - invalid due date: {due_date}")
+        return None
+    
+    # Get timezone from config
+    timezone = config.get('defaults', {}).get('timezone', 'Europe/Amsterdam') if config else 'Europe/Amsterdam'
+    
+    # Set reminder time based on priority
+    priority = frontmatter.get('priority', 'medium')
+    if priority == 'critical':
+        due_dt = due_dt.replace(hour=9, minute=0)  # 9 AM
+    elif priority == 'high':
+        due_dt = due_dt.replace(hour=10, minute=0)  # 10 AM
+    else:
+        due_dt = due_dt.replace(hour=12, minute=0)  # Noon
+    
+    # Prepare event
+    event = {
+        'summary': f"📌 {title}",
+        'description': reminder['body'],
+        'start': {
+            'dateTime': due_dt.isoformat(),
+            'timeZone': timezone,
+        },
+        'end': {
+            'dateTime': (due_dt + timedelta(hours=1)).isoformat(),
+            'timeZone': timezone,
+        },
+        'reminders': {
+            'useDefault': False,
+            'overrides': [
+                {'method': 'popup', 'minutes': 24 * 60},  # 1 day before
+                {'method': 'popup', 'minutes': 60},        # 1 hour before
+            ],
+        },
+        'colorId': '11' if priority == 'critical' else '9' if priority == 'high' else '7',  # Red, blue, or peacock
+    }
+    
+    # Add tags
+    tags = frontmatter.get('tags', [])
+    if tags:
+        event['description'] = f"Tags: {', '.join(tags)}\n\n{event['description']}"
+    
+    # Create event
+    try:
+        created_event = service.events().insert(calendarId=calendar_id, body=event).execute()
+        print(f"✅ Created event for '{title}' in {calendar_name}")
+        return created_event
+    except Exception as e:
+        print(f"❌ Error creating event: {e}")
+        return None
+
+def main():
+    parser = argparse.ArgumentParser(description='Sync reminders to Google Calendar')
+    
+    parser.add_argument('--category', choices=['work', 'private'], 
+                       help='Sync only specific category')
+    parser.add_argument('--dry-run', action='store_true',
+                       help='Show what would be synced without creating events')
+    
+    args = parser.parse_args()
+    
+    print("📅 Sync Reminders to Google Calendar")
+    print("=" * 50)
+    print()
+    
+    # Load config
+    config = load_config()
+    
+    if config:
+        print("📋 Calendar Mapping:")
+        for category, calendar_key in config.get('category_mapping', {}).items():
+            calendar_name = config.get('calendars', {}).get(calendar_key, {}).get('name', calendar_key)
+            print(f"   {category} → {calendar_name}")
+        print()
+    
+    # Get calendar service
+    service = get_calendar_service()
+    if not service:
+        return
+    
+    # Get reminders
+    reminders = get_reminders(args.category)
+    print(f"📋 Found {len(reminders)} pending reminder(s)\n")
+    
+    if not reminders:
+        print("📭 No pending reminders to sync")
+        return
+    
+    # Process each reminder
+    created_count = 0
+    for reminder in reminders:
+        frontmatter = reminder['frontmatter']
+        category = reminder['category']
+        title = frontmatter.get('title', reminder['path'].stem.replace('-', ' ').title())
+        due = frontmatter.get('due', 'No due date')
+        priority = frontmatter.get('priority', 'medium')
+        
+        # Get target calendar
+        calendar_id = get_calendar_id_for_category(category, config)
+        calendar_name = config.get('calendars', {}).get(
+            config.get('category_mapping', {}).get(category, 'primary'), {}
+        ).get('name', calendar_id) if config else calendar_id
+        
+        print(f"{'[DRY RUN] ' if args.dry_run else ''}Creating: {title}")
+        print(f"          Category: {category} → {calendar_name}")
+        print(f"          Due: {due} | Priority: {priority}")
+        
+        if not args.dry_run:
+            event = create_calendar_event(service, reminder, config)
+            if event:
+                created_count += 1
+                print(f"          ✅ Created: {event.get('htmlLink')}")
+        
+        print()
+    
+    if not args.dry_run:
+        print(f"🎉 Successfully created {created_count}/{len(reminders)} event(s)!")
+    else:
+        print(f"🔍 Would create {len(reminders)} event(s)")
+        print("\nRun without --dry-run to actually create events")
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\n\n⚠️  Cancelled")
+    except Exception as e:
+        print(f"\n❌ Error: {e}")
+        import traceback
+        traceback.print_exc()
