@@ -27,6 +27,7 @@ Preparing for our first baby, expected arrival: **May 13, 2026**
 - [ ] Baby monitor
 - [ ] Blackout curtains
 - [ ] Room decoration/preparation
+- [ ] Electric baby swing (from marktplaats.nl)
 
 ### Clothing & Textiles
 - [ ] Newborn clothes (0-3 months)
@@ -48,6 +49,7 @@ Preparing for our first baby, expected arrival: **May 13, 2026**
 - [ ] Stroller/pram (kinderwagen)
 - [ ] Baby carrier/wrap (draagdoek)
 - [ ] Diaper bag
+- [ ] Electric bakfiets (cargo bike) - second-hand, budget €2500-3000
 
 ### Care & Hygiene
 - [ ] Diapers (luiers) - newborn size
@@ -64,7 +66,7 @@ Preparing for our first baby, expected arrival: **May 13, 2026**
 - [ ] Choose hospital/birthing location
 - [ ] Prepare birth plan
 - [ ] Research pediatricians (kinderarts)
-- [ ] Arrange parental leave (ouderschapsverlof)
+- [ ] Arrange parental leave (ouderschapsverlof) - research duration & create detailed planning
 - [ ] Update insurance
 - [ ] Baby registry at gemeente (after birth)
 - [ ] Choose godparents (if applicable)
@@ -128,8 +130,18 @@ Preparing for our first baby, expected arrival: **May 13, 2026**
 - Which kraamzorg organization to choose?
 - Which baby products are actually necessary vs nice-to-have?
 - What does Dutch health insurance cover?
-- How much parental leave can we take?
+- How much parental leave can we take? (geboorteverlof, partnerverlof, ouderschapsverlof)
 - Vaccination schedule in Netherlands?
+
+## Active Reminders
+- [Buy Electric Bakfiets](../reminders/buy-electric-bakfiets.md) - Due: Mar 15, 2026
+- [Research Electric Baby Swing](../reminders/research-electric-baby-swing.md) - Due: Mar 1, 2026
+- [Plan Parental Leave](../reminders/plan-parental-leave.md) - Due: Feb 15, 2026 🔴 **High Priority**
+- [Buy Essential Baby Items](../reminders/buy-essential-baby-items.md)
+- [Prepare Hospital Bag](../reminders/prepare-hospital-bag.md)
+- [Register Kraamzorg](../reminders/register-kraamzorg.md)
+- [Register Baby Gemeente](../reminders/register-baby-gemeente.md)
+- [Organize Babyshower Planning Group](../reminders/organize-babyshower-planning-group.md)
 
 ## Notes
 - First baby - lots to learn!
