@@ -1,7 +1,7 @@
 ---
 type: reminder
 category: private
-status: pending
+status: cancelled
 priority: medium
 created: 2026-02-01
 due: 2026-02-02

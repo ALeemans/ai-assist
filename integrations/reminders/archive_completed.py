@@ -1,7 +1,7 @@
 """
 Archive completed reminders
 
-This script checks for reminders with status: completed and moves them
+This script checks for reminders with status: completed or cancelled and moves them
 to the archive/ subdirectory to keep the active reminders folder clean.
 """
 
@@ -48,18 +48,19 @@ def archive_completed_reminders():
             
             frontmatter, _ = parse_frontmatter(reminder_file)
             
-            if frontmatter and frontmatter.get('status') == 'completed':
+            if frontmatter and frontmatter.get('status') in ['completed', 'cancelled']:
                 # Move to archive
                 archive_path = archive_dir / reminder_file.name
                 shutil.move(str(reminder_file), str(archive_path))
-                print(f"📦 Archived: {category}/reminders/{reminder_file.name}")
+                status = frontmatter.get('status')
+                print(f"📦 Archived ({status}): {category}/reminders/{reminder_file.name}")
                 archived_count += 1
     
     if archived_count == 0:
-        print("✅ No completed reminders to archive")
+        print("✅ No completed/cancelled reminders to archive")
     else:
-        print(f"\n🎉 Archived {archived_count} completed reminder(s)")
+        print(f"\n🎉 Archived {archived_count} reminder(s)")
 
 if __name__ == "__main__":
-    print("🔍 Checking for completed reminders to archive...\n")
+    print("🔍 Checking for completed/cancelled reminders to archive...\n")
     archive_completed_reminders()
