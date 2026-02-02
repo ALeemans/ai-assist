@@ -8,7 +8,7 @@ devops:
 
 # Default values for new user stories
 defaults:
-  feature_id: 130948  # Feature ID to link user stories to (set to null for no parent)
+  feature_id: 145908  # Feature ID to link user stories to (set to null for no parent)
   iteration_path: "DevOps DenA\\Data Analytics"
   tag: "ME"
   state: "Domeinteam Verzoek To Do"

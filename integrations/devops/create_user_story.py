@@ -85,7 +85,7 @@ def create_user_story(title, description, organization, project, api_version,
         return None
 
 def update_user_story(work_item_id, organization, project, api_version, 
-                      title=None, description=None, acceptance_criteria=None):
+                      title=None, description=None, acceptance_criteria=None, state=None):
     """Update an existing user story in Azure DevOps"""
     
     url = f"{organization}/{project}/_apis/wit/workitems/{work_item_id}?api-version={api_version}"
@@ -98,6 +98,8 @@ def update_user_story(work_item_id, organization, project, api_version,
         data.append({"op": "replace", "path": "/fields/System.Description", "value": description})
     if acceptance_criteria:
         data.append({"op": "replace", "path": "/fields/Microsoft.VSTS.Common.AcceptanceCriteria", "value": acceptance_criteria})
+    if state:
+        data.append({"op": "replace", "path": "/fields/System.State", "value": state})
     
     if not data:
         print("⚠️ No fields to update")
