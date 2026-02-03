@@ -4,8 +4,8 @@ category: private
 status: planning
 priority: medium
 created: 2026-01-30
-updated: 2026-01-30
-tags: [home-improvement, bathroom]
+updated: 2026-02-03
+tags: [home-improvement, bathroom, plumbing]
 ---
 
 # Broyeur Replacement
@@ -29,24 +29,70 @@ Current broyeur is too loud and needs replacement.
 
 ### Options Being Considered
 
-**Sani Broyeur - Quiet Version**
-- Marketed as very quiet option
-- Need to verify: Does the output support 40mm pipes? (Current setup uses 40mm, but standard might be 32mm)
-- For bathroom installation
+**Sanibroyeur Sanidouche+ - Quiet Version**
+- Marketed as the quietest macerator pump available
+- Standard output: **32mm discharge pipe**
+- Current plumbing: 40mm pipe
+- Pumping requirement: 2.5m vertical lift
+
+### Research Findings (2026-02-03)
+
+**Pipe Compatibility Analysis:**
+
+**Standard Specification:**
+- Sanidouche+ has 32mm discharge outlet (standard for most Saniflo units)
+- Vertical pumping capacity: typically 3-4 meters (well above our 2.5m need)
+
+**Using 32mm to 40mm Adapter:**
+
+✅ **Pros:**
+- 2.5m vertical lift is well within pump capacity - plenty of headroom
+- Larger diameter = less back pressure (easier for pump)
+- Short distance means reduced flow velocity is less problematic
+- Many installations successfully use pipe size increases
+
+⚠️ **Cons:**
+- Reduced flow velocity in larger pipe (could affect self-cleaning)
+- Not the "ideal" technical solution
+- May affect warranty (needs verification)
+
+**Verdict:** Should work for your situation given the modest 2.5m lift height and excess pump capacity.
 
 ### Next Actions
 
-- [ ] Check specifications for Sani Broyeur quiet model
-- [ ] Confirm pipe diameter compatibility (40mm vs 32mm)
-- [ ] Compare with other quiet models on market
-- [ ] Get quotes for purchase and installation
+- [x] Contact Sanibroyeur dealer/installer to:
+  - Confirm 32mm→40mm adapter compatibility for 2.5m vertical
+  - Check warranty implications
+  - Ask about similar installations they've done
+- [ ] **DECISION MADE**: Going ahead with adapter solution
+- [ ] Find best price in Netherlands (check multiple retailers)
+- [ ] Purchase Sanidouche+ unit
+- [ ] Purchase 32mm→40mm PVC adapter
+- [ ] Schedule installation or arrange DIY installation
+- [ ] Compare noise levels (dB) with current model
+
+### Shopping List
+
+**Required Items:**
+- [ ] SFA Sanidouche+ macerator pump
+- [ ] 32mm to 40mm PVC pipe adapter (Gamma/Praxis/Hornbach ~€5-10)
+
+**Where to Check Prices (Netherlands):**
+- Sanitairwinkel.nl (18 showrooms, 9.1 rating)
+- Badkamerxxl.nl
+- Bol.com
+- Gamma.nl / Praxis.nl / Hornbach.nl
+- Megadump.nl
+- Price comparison: Beslist.nl, Kieskeurig.nl
+
+**Expected Price Range:** €400-550 for Sanidouche+ unit
 
 ### Questions to Answer
 
-- Does the Sani Broyeur quiet version have 40mm output or only 32mm?
-- Are adapters available if needed?
-- What are noise levels in dB compared to current model?
-- Installation requirements and costs?
+- Will using an adapter void the warranty?
+- What are actual noise levels in dB compared to current model?
+- Cost of professional installation vs DIY?
+- Is replacing the 40mm pipe with 32mm feasible/cost-effective?
 
 ### Resources
 
