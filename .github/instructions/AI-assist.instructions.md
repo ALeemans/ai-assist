@@ -21,6 +21,11 @@ This repository serves as a personal knowledge base and task management system. 
 
 ## Key Behaviors
 
+- **Add author information to all created files** - When creating any document, script, or SQL file, ALWAYS include an author header with "Anne Leemans in samenwerking met [Model Name]" for Dutch content or "Anne Leemans in collaboration with [Model Name]" for English content. Use the actual model name (e.g., "Claude Sonnet 4.5"). Format the header appropriately for the file type:
+  - Python scripts: `# Author: Anne Leemans in collaboration with Claude Sonnet 4.5`
+  - SQL files: `-- Author: Anne Leemans in samenwerking met Claude Sonnet 4.5`
+  - Markdown/documentation: Add to frontmatter as `author: Anne Leemans in collaboration with Claude Sonnet 4.5` or as a header line
+  - Other languages: Use appropriate comment syntax
 - **Always check for related projects** - Infer which project relates to the user's query and check if it exists in `work/projects/` or `private/projects/`. When creating reminders or performing tasks related to an existing project, ALWAYS update the project file to reflect new items, reminders, or progress
 - **Daily log management** - At the start of any session, check if a daily log exists for today in `daily-logs/YYYY/MM/YYYY-MM-DD.md`. If not, create one using the template. Update the daily log when the user closes out at the end of a session
 - When user mentions a project, search `work/projects/` or `private/projects/` for context
@@ -41,6 +46,7 @@ This repository serves as a personal knowledge base and task management system. 
   - **IMPORTANT**: All DevOps user stories MUST be written in Dutch
   - **REQUIRED**: Always include acceptance criteria (Acceptatiecriteria) for every user story
   - Use the `--acceptance-criteria` argument when creating user stories
+  - **Description format**: Keep descriptions simple and direct. Use statements like "Er is een..." or "Er moet..." instead of user story format "Als... wil ik... zodat..."
   - **State management**: 
     - If user mentions a specific feature ID or a project with an associated feature → set state to `"Te Refinen"` using `--state "Te Refinen"`
     - If no specific feature is mentioned → use default state (configured in config.yaml)
