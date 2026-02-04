@@ -4,7 +4,6 @@ category: work
 status: active
 priority: high
 created: 2026-02-02
-author: Anne Leemans in collaboration with Claude Sonnet 4.5
 feature_id: 139126
 tags: [sql, metadata, python, query-validation, self-service, view-system, team-enablement, database-governance]
 ---
@@ -62,7 +61,6 @@ Build a complete self-service workflow that:
 
 **Active Links:**
 - [User Story #146271](https://dev.azure.com/HogeschoolUtrecht/8b224685-8bd1-4a9a-9650-c62d60c23e77/_workitems/edit/146271) - Testing en documentatie (Doing)
-- [User Story #146224](https://dev.azure.com/HogeschoolUtrecht/8b224685-8bd1-4a9a-9650-c62d60c23e77/_workitems/edit/146224) - Proces documentatie (Te Refinen)
 
 ## Deliverables
 

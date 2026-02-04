@@ -5,6 +5,7 @@ status: planning
 priority: medium
 created: 2026-02-01
 updated: 2026-02-02
+author: Anne Leemans in collaboration with Claude Sonnet 4.5
 tags: [integration, joplin, api, mobile-notes, privacy, european]
 ---
 

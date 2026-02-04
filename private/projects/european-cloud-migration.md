@@ -5,6 +5,7 @@ status: active
 priority: high
 created: 2026-01-30
 updated: 2026-02-02
+author: Anne Leemans in collaboration with Claude Sonnet 4.5
 tags: [privacy, cloud-storage, european, degoogle, linux, sailfish-os]
 ---
 

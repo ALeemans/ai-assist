@@ -4,6 +4,7 @@ category: work
 status: idea
 priority: medium
 created: 2026-01-30
+author: Anne Leemans in collaboration with Claude Sonnet 4.5
 tags: [ai, dimensional-modeling, facts, dimensions, duo, metadata, api, experimental]
 ---
 

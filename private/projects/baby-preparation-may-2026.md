@@ -4,6 +4,7 @@ category: private
 status: in-progress
 priority: high
 created: 2026-01-30
+author: Anne Leemans in collaboration with Claude Sonnet 4.5
 due: 2026-05-13
 tags: [baby, family, preparation, first-child]
 ---
@@ -31,9 +32,12 @@ Preparing for our first baby, expected arrival: **May 13, 2026**
 
 ### Clothing & Textiles
 - [ ] Newborn clothes (0-3 months)
-- [ ] Onesies/rompers (rompertjes)
+- [ ] Onesies/rompers - 6x (6 rompertjes)
+- [ ] Sweaters/truitjes - 6x
+- [ ] Pants/broekjes - 6x
+- [ ] Socks - 4x
+- [ ] Hats/mutsjes - 2x
 - [ ] Sleeping bags (slaapzakjes)
-- [ ] Hats, socks, mittens
 - [ ] Swaddles/blankets
 - [ ] Burp cloths
 
@@ -52,17 +56,22 @@ Preparing for our first baby, expected arrival: **May 13, 2026**
 - [ ] Electric bakfiets (cargo bike) - second-hand, budget €2500-3000
 
 ### Care & Hygiene
-- [ ] Diapers (luiers) - newborn size
+- [ ] Diapers (luiers) - newborn size (maat 1: 2-5 kg)
 - [ ] Wipes (billendoekjes)
 - [ ] Changing mat
-- [ ] Baby bathtub
+- [ ] Aankleedkussen met 3 hoezen (dressing cushion with 3 covers)
+- [ ] Baby bathtub (badje)
+- [ ] Bath capes / swaddle cloths - 3x (badcapes / omslagdoeken)
 - [ ] Towels and washcloths
-- [ ] Thermometer
+- [ ] Digital thermometer (digitale koortsthermometer)
+- [ ] Metal water bottles / warm water bags - 2x (2 metalen kruiken of warmwaterzakken)
 - [ ] Nail clippers
 - [ ] First aid kit
+- [ ] Cotton cloth diapers - 6x (6 gewassen katoenen hydrofiel-luiers)
 
 ### Administrative & Medical
-- [ ] Register at Kraamzorg (maternity care)
+- [ ] Register at Kraamzorg (maternity care) - request if ~20 weeks pregnant
+- [ ] Request kraampakket from insurance (around week 20) or purchase one
 - [ ] Choose hospital/birthing location
 - [ ] Prepare birth plan
 - [ ] Research pediatricians (kinderarts)
@@ -70,10 +79,21 @@ Preparing for our first baby, expected arrival: **May 13, 2026**
 - [ ] Update insurance
 - [ ] Baby registry at gemeente (after birth)
 - [ ] Choose godparents (if applicable)
+- [ ] Ensure emergency hospital transport plan in place
+  - Pregnancy file (zwangerschapsdossier)
+  - Insurance card (verzekeringspasje)
+  - Hospital parking token (if applicable)
+  - Toiletries and clothes for emergency
+  - €1 and €2 coins for hospital wheelchair
 
 ### House Preparation
 - [ ] Deep clean house
 - [ ] Set up nursery
+- [ ] Plastic mattress protector (plastic zeil voor matras bescherming)
+- [ ] Bed blocks to raise height to ~65cm (klossen voor bedverhoging) - or empty crates
+- [ ] Roll of garbage bags (rol vuilniszakken)
+- [ ] Hospital bag with essentials (see Hospital Bag Checklist below)
+- [ ] Arrangement for emergency hospital transport
 - [ ] Baby-proof home (safety gates, outlet covers)
 - [ ] Stock freezer with meals
 - [ ] Prepare hospital bag
@@ -149,6 +169,18 @@ Preparing for our first baby, expected arrival: **May 13, 2026**
 - Ask experienced parents for advice
 - Remember: baby needs surprisingly little at first (love, food, sleep, clean diaper)
 - Take it one step at a time - don't overwhelm ourselves
+
+## Important Items for Home Birth/Delivery (from Witsenkade)
+**Kraampakket items** (if not provided by insurance):
+- [ ] 10 incontinence mats (~50×50 cm)
+- [ ] Navel clamp (navelklemmetje)
+- [ ] Rubbing alcohol 70%
+- [ ] Sterile gauze pads 16×16 cm
+- [ ] Sterile gauze pads 10×10 cm
+- [ ] Maternity pads (kraamverband)
+- [ ] Regular pads (maandverband)
+
+These should be arranged from week 37 onwards to ensure everything is ready.
 
 ## Celebrations
 - [ ] Plan baby shower/gender reveal (if desired)

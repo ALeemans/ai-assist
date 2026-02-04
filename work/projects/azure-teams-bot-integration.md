@@ -4,6 +4,7 @@ category: work
 status: in-progress
 priority: high
 created: 2026-01-30
+author: Anne Leemans in collaboration with Claude Sonnet 4.5
 tags: [azure, teams, bot, integration, devops]
 feature_id: 138894
 feature_url: https://dev.azure.com/HogeschoolUtrecht/DevOps%20DenA/_boards/board/t/Team%20Data%20Analytics/Backlog%20items?workitem=138894

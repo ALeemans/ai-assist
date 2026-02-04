@@ -4,6 +4,7 @@ category: private
 status: in-progress
 priority: medium
 created: 2026-01-30
+author: Anne Leemans in collaboration with Claude Sonnet 4.5
 tags: [home-improvement, schuifpui, vve, notary, vereniging-eigenhuis, apartment]
 ---
 

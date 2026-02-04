@@ -5,6 +5,7 @@ status: planning
 priority: medium
 created: 2026-01-30
 updated: 2026-02-03
+author: Anne Leemans in collaboration with Claude Sonnet 4.5
 tags: [home-improvement, bathroom, plumbing]
 ---
 

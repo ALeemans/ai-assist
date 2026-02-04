@@ -4,6 +4,7 @@ category: work
 status: planned
 priority: medium
 created: 2026-01-30
+author: Anne Leemans in collaboration with Claude Sonnet 4.5
 tags: [ckan, data-portal, google-analytics, analytics, usage-tracking, hu]
 feature_id: 142557
 feature_url: https://dev.azure.com/HogeschoolUtrecht/DevOps%20DenA/_boards/board/t/Team%20Data%20Analytics/Backlog%20items?workitem=142557

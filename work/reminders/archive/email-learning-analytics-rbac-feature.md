@@ -1,10 +1,11 @@
 ---
 type: reminder
 category: work
-status: pending
+status: completed
 priority: high
 created: 2026-01-30
 due: 2026-02-04
+completed: 2026-02-04
 tags: [learning-analytics, role-based-security, feature-request, email]
 ---
 

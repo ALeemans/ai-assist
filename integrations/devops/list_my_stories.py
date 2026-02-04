@@ -7,6 +7,7 @@ import requests
 import yaml
 from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 import sys
+import argparse
 
 def load_config():
     """Load configuration from config.yaml"""
@@ -122,12 +123,15 @@ def display_stories(work_items):
 def main():
     """Main entry point."""
     
+    parser = argparse.ArgumentParser(description='List user stories assigned to me in Azure DevOps')
+    parser.add_argument('--state', type=str, help='Filter by work item state (e.g., Doing, New, Te Refinen)')
+    
+    args = parser.parse_args()
+    
     config = load_config()
     
-    # Check for state filter argument
-    state_filter = None
-    if len(sys.argv) > 1:
-        state_filter = sys.argv[1]
+    state_filter = args.state
+    if state_filter:
         print(f"🔍 Filtering by state: {state_filter}")
     
     work_items = get_my_stories(config, state_filter)
