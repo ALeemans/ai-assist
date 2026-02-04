@@ -4,7 +4,7 @@ category: work
 status: pending
 priority: high
 created: 2026-01-30
-due: 2026-02-03
+due: 2026-02-04
 tags: [learning-analytics, role-based-security, feature-request, email]
 ---
 
