@@ -56,8 +56,93 @@ Hybride aanpak voor het beschikbaar stellen van Copilot-gegenereerde resultaten 
 - **Optioneel per Opleiding**: Gesplitste weergave per educatief domein
 - **Performance**: Snelle laadtijden (<3 seconden)
 
+## De 5 Kernprompts
+
+### Prompt 1: [Naam/Categorie]
+**Vraag aan Copilot:**
+- [Definieer de prompt]
+
+**Verwachte Output:**
+- [Wat voor resultaten levert dit op?]
+
+**Data Bronnen:**
+- [Welke data is nodig?]
+
+**Relevantie voor Stakeholders:**
+- [Waarom is dit belangrijk?]
+
+---
+
+### Prompt 2: [Naam/Categorie]
+**Vraag aan Copilot:**
+- [Definieer de prompt]
+
+**Verwachte Output:**
+- [Wat voor resultaten levert dit op?]
+
+**Data Bronnen:**
+- [Welke data is nodig?]
+
+**Relevantie voor Stakeholders:**
+- [Waarom is dit belangrijk?]
+
+---
+
+### Prompt 3: [Naam/Categorie]
+**Vraag aan Copilot:**
+- [Definieer de prompt]
+
+**Verwachte Output:**
+- [Wat voor resultaten levert dit op?]
+
+**Data Bronnen:**
+- [Welke data is nodig?]
+
+**Relevantie voor Stakeholders:**
+- [Waarom is dit belangrijk?]
+
+---
+
+### Prompt 4: [Naam/Categorie]
+**Vraag aan Copilot:**
+- [Definieer de prompt]
+
+**Verwachte Output:**
+- [Wat voor resultaten levert dit op?]
+
+**Data Bronnen:**
+- [Welke data is nodig?]
+
+**Relevantie voor Stakeholders:**
+- [Waarom is dit belangrijk?]
+
+---
+
+### Prompt 5: [Naam/Categorie]
+**Vraag aan Copilot:**
+- [Definieer de prompt]
+
+**Verwachte Output:**
+- [Wat voor resultaten levert dit op?]
+
+**Data Bronnen:**
+- [Welke data is nodig?]
+
+**Relevantie voor Stakeholders:**
+- [Waarom is dit belangrijk?]
+
+---
+
+## Dashboard Mockup Overwegingen
+- **Filter Interface**: Hoe selecteren gebruikers prompts? (dropdown, knoppen, etc.)
+- **Results Display**: Tabellen, visualisaties, tekst?
+- **Opleiding Filter**: Hoe implementeren we de optionele opleiding-filter?
+- **Performance**: Caching strategie voor pre-generated resultaten
+
 ## Volgende Stappen
-- [ ] Bijeenkomst met stakeholders om prompts te definiëren
+- [x] Template voor prompt definitie aangemaakt (2026-02-04)
+- [ ] 5 kernprompts definiëren met stakeholder perspectief
+- [ ] Bijeenkomst met stakeholders plannen om prompts te valideren
 - [ ] Copilot resultaten generen voor gedefinieerde prompts
 - [ ] Dashboard prototype bouwen
 - [ ] Feedback verzamelen en itereren
@@ -66,3 +151,5 @@ Hybride aanpak voor het beschikbaar stellen van Copilot-gegenereerde resultaten 
 - Beginjaar is 2026
 - Deze aanpak schept basis voor toekomstige versie met self-service prompting
 - Focus op gebruiksvriendelijkheid en duidelijke relatie prompt ↔ resultaten
+- Denk aan: Welke vragen stellen stakeholders nu al regelmatig?
+- Prompts moeten breed genoeg zijn voor hergebruik, maar specifiek genoeg voor waardevolle resultaten
