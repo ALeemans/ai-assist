@@ -26,3 +26,4 @@ Thumbs.db
 # IDE
 .vscode/settings.json
 .idea/
+integrations/anthropic/token.json

@@ -59,7 +59,7 @@ Current broyeur is too loud and needs replacement.
 
 **Verdict:** Should work for your situation given the modest 2.5m lift height and excess pump capacity.
 
-### Next Actions
+### Next **Actions**
 
 - [x] Contact Sanibroyeur dealer/installer to:
   - Confirm 32mm→40mm adapter compatibility for 2.5m vertical
