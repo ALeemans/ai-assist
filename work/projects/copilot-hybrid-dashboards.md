@@ -37,6 +37,19 @@ Hybride aanpak voor het beschikbaar stellen van Copilot-gegenereerde resultaten 
 
 ## User Stories
 
+### Planned 📋
+- [ ] User Story #146498: Semantic model ontwikkelen voor Copilot Hybrid Dashboard
+  - Twee feitentabellen: originele open antwoorden & copilot query resultaten
+  - Standaard dimensies: Opleiding, Vorm, Organisatie, Datum
+  - Specifieke dimensies: Copilot Query Dimension, NSE Questions Dimension
+  - [Link naar User Story](https://dev.azure.com/HogeschoolUtrecht/8b224685-8bd1-4a9a-9650-c62d60c23e77/_workitems/edit/146498)
+  
+- [ ] User Story #146499: Data exclusion configureren voor Copilot queries op semantic model
+  - Onderzoek mogelijkheden om bepaalde data te excluderen bij Copilot queries
+  - Voorkomen dat Copilot kijkt naar pre-generated query resultaten
+  - Configureren welke tabellen/kolommen wel/niet beschikbaar zijn
+  - [Link naar User Story](https://dev.azure.com/HogeschoolUtrecht/8b224685-8bd1-4a9a-9650-c62d60c23e77/_workitems/edit/146499)
+
 ### In Progress 🚧
 - [ ] User Story #146351: Hybride Copilot Dashboards v1 - Gefilterde Resultaten
   - Dashboard development met gefilterde prompts
@@ -141,6 +154,8 @@ Hybride aanpak voor het beschikbaar stellen van Copilot-gegenereerde resultaten 
 
 ## Volgende Stappen
 - [x] Template voor prompt definitie aangemaakt (2026-02-04)
+- [ ] Semantic model bouwen met twee feitentabellen en dimensies
+- [ ] Data exclusion voor Copilot configureren
 - [ ] 5 kernprompts definiëren met stakeholder perspectief
 - [ ] Bijeenkomst met stakeholders plannen om prompts te valideren
 - [ ] Copilot resultaten generen voor gedefinieerde prompts

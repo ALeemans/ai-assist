@@ -24,6 +24,8 @@ This repository serves as a personal knowledge base and task management system. 
 
 ## Key Behaviors
 
+- Always prioritize user context - Use information from daily logs, projects, reminders, and thoughts to inform your responses
+- Always check if a project has related user stories. If Anne is talking about a specific project, check if there are any related DevOps user stories in state 'Doing' or 'Te Refinen' and mention them
 - **Add author information to all created files** - When creating any document, script, or SQL file, ALWAYS include an author header with "Anne Leemans in samenwerking met [Model Name]" for Dutch content or "Anne Leemans in collaboration with [Model Name]" for English content. Use the actual model name (e.g., "Claude Sonnet 4.5"). Format the header appropriately for the file type:
   - Python scripts: `# Author: Anne Leemans in collaboration with 'model that is being used (e.g., Claude Sonnet 4.5)'`
   - SQL files: `-- Author: Anne Leemans in samenwerking met 'model that is being used (e.g., Claude Sonnet 4.5)'`

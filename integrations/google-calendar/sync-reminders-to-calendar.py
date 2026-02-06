@@ -151,14 +151,57 @@ def create_calendar_event(service, reminder, config=None):
     # Get timezone from config
     timezone = config.get('defaults', {}).get('timezone', 'Europe/Amsterdam') if config else 'Europe/Amsterdam'
     
-    # Set reminder time based on priority
-    priority = frontmatter.get('priority', 'medium')
-    if priority == 'critical':
-        due_dt = due_dt.replace(hour=9, minute=0)  # 9 AM
-    elif priority == 'high':
-        due_dt = due_dt.replace(hour=10, minute=0)  # 10 AM
+    # Set reminder time - check for custom due_time field first
+    due_time = frontmatter.get('due_time')
+    if due_time:
+        # Parse custom time (e.g., "20:00")
+        time_parts = due_time.split(':')
+        hour = int(time_parts[0])
+        minute = int(time_parts[1]) if len(time_parts) > 1 else 0
+        due_dt = due_dt.replace(hour=hour, minute=minute)
     else:
-        due_dt = due_dt.replace(hour=12, minute=0)  # Noon
+        # Default: Set reminder time based on priority
+        priority = frontmatter.get('priority', 'medium')
+        if priority == 'critical':
+            due_dt = due_dt.replace(hour=9, minute=0)  # 9 AM
+        elif priority == 'high':
+            due_dt = due_dt.replace(hour=10, minute=0)  # 10 AM
+        else:
+            due_dt = due_dt.replace(hour=12, minute=0)  # Noon
+    
+    # Set event duration - check for custom duration_minutes field
+    duration_minutes = frontmatter.get('duration_minutes', 60)  # Default 1 hour
+    end_dt = due_dt + timedelta(minutes=duration_minutes)
+    
+    # Set reminder notifications - check for custom reminder_minutes_before field
+    reminder_minutes_before = frontmatter.get('reminder_minutes_before')
+    if reminder_minutes_before:
+        reminder_overrides = [{'method': 'popup', 'minutes': reminder_minutes_before}]
+    else:
+        reminder_overrides = [
+            {'method': 'popup', 'minutes': 24 * 60},  # 1 day before
+            {'method': 'popup', 'minutes': 60},        # 1 hour before
+        ]
+    
+    # Set color - check for custom calendar_color field
+    calendar_color = frontmatter.get('calendar_color', '').lower()
+    color_map = {
+        'red': '11',
+        'orange': '6',
+        'yellow': '5',
+        'green': '10',
+        'blue': '9',
+        'purple': '3',
+        'gray': '8',
+        'peacock': '7'
+    }
+    
+    if calendar_color and calendar_color in color_map:
+        color_id = color_map[calendar_color]
+    else:
+        # Default: color based on priority
+        priority = frontmatter.get('priority', 'medium')
+        color_id = '11' if priority == 'critical' else '9' if priority == 'high' else '7'
     
     # Prepare event
     event = {
@@ -169,17 +212,14 @@ def create_calendar_event(service, reminder, config=None):
             'timeZone': timezone,
         },
         'end': {
-            'dateTime': (due_dt + timedelta(hours=1)).isoformat(),
+            'dateTime': end_dt.isoformat(),
             'timeZone': timezone,
         },
         'reminders': {
             'useDefault': False,
-            'overrides': [
-                {'method': 'popup', 'minutes': 24 * 60},  # 1 day before
-                {'method': 'popup', 'minutes': 60},        # 1 hour before
-            ],
+            'overrides': reminder_overrides,
         },
-        'colorId': '11' if priority == 'critical' else '9' if priority == 'high' else '7',  # Red, blue, or peacock
+        'colorId': color_id,
     }
     
     # Add tags

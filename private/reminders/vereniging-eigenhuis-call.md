@@ -4,7 +4,7 @@ category: private
 status: pending
 priority: high
 created: 2026-02-04
-due: 2026-02-07
+due: 2026-02-06
 due_time: "10:00"
 tags: [schuifpui, vereniging-eigenhuis, phone-call, vve]
 ---

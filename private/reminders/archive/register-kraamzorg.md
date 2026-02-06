@@ -1,10 +1,11 @@
 ---
 type: reminder
 category: private
-status: pending
+status: completed
 priority: high
 created: 2026-01-30
 due: 2026-02-10
+completed: 2026-02-05
 tags: [baby, kraamzorg, registration]
 ---
 

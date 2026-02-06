@@ -1,9 +1,10 @@
 ---
 type: project
 category: work
-status: active
+status: handed-off
 priority: high
 created: 2026-02-02
+frontend_completed: 2026-02-05
 author: Anne Leemans in collaboration with Claude Sonnet 4.5
 feature_id: 139126
 tags: [sql, metadata, python, query-validation, self-service, view-system, team-enablement, database-governance]
