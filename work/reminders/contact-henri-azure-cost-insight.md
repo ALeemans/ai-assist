@@ -4,7 +4,7 @@ category: work
 status: pending
 priority: medium
 created: 2026-02-09
-due: 2026-02-10
+due: 2026-02-12
 tags: [azure, costs, team-communication]
 ---
 
