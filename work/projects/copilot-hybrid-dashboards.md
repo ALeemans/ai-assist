@@ -37,6 +37,16 @@ Hybride aanpak voor het beschikbaar stellen van Copilot-gegenereerde resultaten 
 
 ## User Stories
 
+### Completed ✅
+- [x] User Story #147326: GitHub Copilot SDK integratie voor NSE vraag automatisering
+  - GitHub Copilot SDK installeren en configureren ✓
+  - Connectie opzetten met GitHub Copilot API ✓
+  - NSE vragen automatisch versturen als prompts ✓
+  - Resultaten ontvangen en opslaan voor dashboard ✓
+  - Error handling implementeren ✓
+  - **Status:** Afgerond 2026-02-16 - SDK werkt, script is klaar (out of tokens momenteel)
+  - [Link naar User Story](https://dev.azure.com/HogeschoolUtrecht/8b224685-8bd1-4a9a-9650-c62d60c23e77/_workitems/edit/147326)
+
 ### Planned 📋
 - [ ] User Story #146498: Semantic model ontwikkelen voor Copilot Hybrid Dashboard
   - Twee feitentabellen: originele open antwoorden & copilot query resultaten
@@ -154,6 +164,9 @@ Hybride aanpak voor het beschikbaar stellen van Copilot-gegenereerde resultaten 
 
 ## Volgende Stappen
 - [x] Template voor prompt definitie aangemaakt (2026-02-04)
+- [ ] DevOps repository aanmaken voor DM NSE open antwoorden
+- [ ] Huidige open antwoorden data als basis vastleggen
+- [ ] Open antwoorden door Copilot halen met 5 vooraf gedefinieerde queries
 - [ ] Semantic model bouwen met twee feitentabellen en dimensies
 - [ ] Data exclusion voor Copilot configureren
 - [ ] 5 kernprompts definiëren met stakeholder perspectief

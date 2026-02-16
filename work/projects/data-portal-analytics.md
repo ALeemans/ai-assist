@@ -16,10 +16,11 @@ feature_url: https://dev.azure.com/HogeschoolUtrecht/DevOps%20DenA/_boards/board
 Implement usage tracking and analytics for the HU Data Portal (built on CKAN) using Google Analytics. This will provide insights into how the portal is being used, which datasets are popular, user behavior patterns, and overall portal effectiveness.
 
 ## Current Status
-- 📋 Planning phase - starting from scratch
+- 📋 Planning phase - preparing email to CKAN beheerders
 - 🎯 Goal: Set up Google Analytics for CKAN data portal
 - 📊 No existing analytics implementation
 - 🔰 Team has no prior Google Analytics experience
+- ✉️ Email draft created (2026-02-16) - ready to send to beheerders
 
 ## Goals
 - Track portal usage metrics (visits, users, sessions)
@@ -42,12 +43,25 @@ Implement usage tracking and analytics for the HU Data Portal (built on CKAN) us
 5. Privacy considerations (GDPR compliance)?
 
 ## Research Needed
-- [ ] Google Analytics setup basics (GA4)
-- [ ] CKAN documentation on analytics integration
+- [x] Google Analytics setup basics (GA4) - researched 2026-02-16
+- [x] CKAN documentation on analytics integration - researched 2026-02-16
 - [ ] Best practices for data portal analytics
-- [ ] Custom event tracking for CKAN actions
+- [x] Custom event tracking for CKAN actions - covered by ckanext-googleanalytics plugin
 - [ ] Privacy/GDPR requirements for analytics
 - [ ] Alternative analytics tools (comparison)
+
+## Key Findings (2026-02-16)
+- **Official Plugin:** `ckanext-googleanalytics` is the standard CKAN extension for GA integration
+- **Setup Requirements:**
+  - Plugin installation on CKAN server
+  - Configuration in development.ini/production.ini
+  - Google Cloud Service Account with JSON credentials
+  - GA4 property with Read access for service account
+- **Features:**
+  - Automatic tracking code insertion
+  - Event tracking for downloads, API calls, dataset views
+  - Statistics stored in CKAN database
+  - GDPR compliance options
 
 ## Implementation Steps (Draft)
 1. **Learn Google Analytics basics**
@@ -93,3 +107,13 @@ Implement usage tracking and analytics for the HU Data Portal (built on CKAN) us
 - Team: Data Analytics
 - Starting from scratch - learning opportunity
 - Consider documenting process for future reference
+
+## Action Items
+- [ ] Review and send email to CKAN beheerders (draft in temp/email-draft-ckan-google-analytics.md)
+- [ ] Create Google Cloud Service Account and credentials JSON
+- [ ] Set up GA4 property for dataportal
+- [ ] Coordinate with beheerders on plugin installation timeline
+- [ ] Plan testing session after installation
+
+## Email Draft Location
+`temp/email-draft-ckan-google-analytics.md` (created 2026-02-16)
