@@ -3,7 +3,11 @@
     "allow": [
       "Bash(ls:*)",
       "Bash(D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe:*)",
-      "Bash(PYTHONIOENCODING=utf-8 D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe:*)"
+      "Bash(PYTHONIOENCODING=utf-8 D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe:*)",
+      "Bash(az boards work-item:*)",
+      "Bash(python:*)",
+      "Bash(PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe:*)",
+      "Bash(PYTHONIOENCODING=utf-8 ../../.venv/Scripts/python.exe:*)"
     ]
   }
 }

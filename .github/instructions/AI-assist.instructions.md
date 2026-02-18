@@ -40,10 +40,14 @@ This repository serves as a personal knowledge base and task management system. 
 - Remind user of pending reminders when relevant to conversation
 - Use metadata (tags, dates, priority) to filter and prioritize information
 - **Always ask to clean up redundant files after completing functionality** - This repo involves testing and can get cluttered. After finishing any new feature or integration, proactively ask the user if they want to remove test files, unused scripts, or obsolete documentation
-- **Always use virtual environment for Python scripts** - Before running any Python script, ALWAYS use the virtual environment Python interpreter: `& D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe <script-path>`
+- **Always use virtual environment for Python scripts** - Before running any Python script, ALWAYS use the virtual environment Python interpreter. Use the correct syntax for your shell:
+  - **PowerShell**: `& D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe <script-path>`
+  - **Bash/Git Bash**: `PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe <script-path>` (run from repo root)
+  - **IMPORTANT**: Always set `PYTHONIOENCODING=utf-8` in bash environments because scripts contain emoji characters that fail with the default Windows cp1252 encoding
 - **Automatically sync reminders to Google Calendar** - When creating reminder files in `private/reminders/` or `work/reminders/`, ALWAYS automatically run the sync script immediately after creation using: `& D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe D:/HogeschoolUtrecht/GithubRepos/ai-assist/integrations/google-calendar/sync-reminders-to-calendar.py`
 - **Schedule work reminders on weekdays only** - When creating work reminders, ensure the due date falls on a weekday (Monday-Friday). If a date falls on a weekend, move it to the next Monday
-- **Archive completed reminders** - When a reminder is completed, change its status to `status: completed` and run `& D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe D:/HogeschoolUtrecht/GithubRepos/ai-assist/integrations/reminders/archive_completed.py` to automatically move it to the archive folder. This keeps active reminder folders clean while preserving history. 
+- **Archive completed reminders** - When a reminder is completed, change its status to `status: completed` and run `& D:/HogeschoolUtrecht/GithubRepos/ai-assist/.venv/Scripts/python.exe D:/HogeschoolUtrecht/GithubRepos/ai-assist/integrations/reminders/archive_completed.py` to automatically move it to the archive folder. This keeps active reminder folders clean while preserving history.
+- **Update DevOps when user stories are completed** - When the user mentions completing a user story, ALWAYS update its status in Azure DevOps using the update_status.py script. Use `cd integrations/devops && PYTHONIOENCODING=utf-8 ../../.venv/Scripts/python.exe update_status.py <work_item_id> Done` to mark it as Done. Also update the daily log to reflect completion. 
 
 ## Integration Points
 
@@ -52,9 +56,11 @@ This repository serves as a personal knowledge base and task management system. 
   - **REQUIRED**: Always include acceptance criteria (Acceptatiecriteria) for every user story
   - Use the `--acceptance-criteria` argument when creating user stories
   - **Description format**: Keep descriptions simple and direct. Use statements like "Er is een..." or "Er moet..." instead of user story format "Als... wil ik... zodat..."
-  - **State management**: 
+  - **State management**:
     - If user mentions a specific feature ID or a project with an associated feature → set state to `"Te Refinen"` using `--state "Te Refinen"`
     - If no specific feature is mentioned → use default state (configured in config.yaml)
+  - **Script location & usage**: The create script is at `integrations/devops/create_user_story.py`. Config is in `integrations/devops/config.yaml`. Always override the feature ID with `--feature <ID>` when a specific feature is given. See `integrations/devops/README.md` for full argument reference
+  - **Listing stories**: Use `integrations/devops/list_my_stories.py` to query current work items (e.g., `--state Doing`)
 - **Google Calendar**: Sync reminders using `integrations/google-calendar/`
 
 ## File Naming Conventions

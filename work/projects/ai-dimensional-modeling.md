@@ -1,7 +1,7 @@
 ---
 type: project
 category: work
-status: idea
+status: active
 priority: medium
 created: 2026-01-30
 author: Anne Leemans in collaboration with Claude Sonnet 4.5
@@ -29,9 +29,9 @@ Build an AI system that can:
 - API endpoints available
 
 ## Current Status
-- 💡 Idea phase - no clear implementation plan yet
+- 🚀 Active - User Story #147542 created under Feature #146929
 - 📊 DUO data identified as starting point
-- 🔬 Experimental/research project
+- 🔬 Experimental/research pilot
 
 ## Ideas & Considerations
 - What metadata is needed for AI to make good decisions?
