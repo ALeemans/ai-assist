@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:onderwijsdata.duo.nl)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\anne.leemans\\OneDrive - Stichting Hogeschool Utrecht\\Documents\\Repos\\ai-dimensional-modeling\\{docs,agent\\{instructions,templates,prompts},data\\{raw,processed,metadata},src",
+      "c:\\Users\\anne.leemans\\OneDrive - Stichting Hogeschool Utrecht\\Documents\\Repos\\ai-dimensional-modeling"
+    ]
+  }
+}
